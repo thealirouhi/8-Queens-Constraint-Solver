@@ -12,6 +12,17 @@ bool isSafe(int queens[N], int row, int col, char board[N][N]);
 // recursive solver
 int solve(int queens[N], int row, char board[N][N]);
 
+void readBoard(char board[N][N]) {
+    for (int i = 0; i < N; i++) {
+        string row;
+        cin >> row;
+
+        for (int j = 0; j < N; j++) {
+            board[i][j] = row[j];
+        }
+    }
+}
+
 int main()
 {
     char board[N][N];
