@@ -46,6 +46,27 @@ bool isSafe(int queens[N], int row, int col, char board[N][N]) {
     return true;
 }
 
+int solve(int queens[N], int row, char board[N][N]) {
+
+    // base case: all rows filled
+    if (row == N)
+        return 1;
+
+    int count = 0;
+
+    for (int col = 0; col < N; col++) {
+
+        if (isSafe(queens, row, col, board)) {
+
+            queens[row] = col;
+
+            count += solve(queens, row + 1, board);
+        }
+    }
+
+    return count;
+}
+
 int main()
 {
     char board[N][N];
